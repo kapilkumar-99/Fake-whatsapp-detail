@@ -1,0 +1,412 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    height: 75px;
+    width: 135px;
+}
+
+header{
+    background-color: rgb(218, 218, 218);
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
+}
+
+.heading::after{
+    content: '';
+    background-color: aqua;
+    width: 200px;
+    height: 5px;
+    margin-top: 20px;
+}
+
+.layout-and-contoller{
+    display: flex;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-btn-desktop, .view-btn-mobile{
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 10px 200px 10px 200px;
+    background-color: transparent;
+    border-radius: 4px;
+}
+.view-btn-mobile{
+    background-color: #1cb9c8;
+    border-color: #1cb9c8;
+    color: white;
+}
+
+.controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.controller-screen{
+    border: 2px solid black;
+    width: 68%;
+    display: flex;
+    gap: 35px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(20px);
+}
+  
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.hide-header{
+    display: flex;
+}
+
+.hft{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.network{
+    width: 225px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.time-opt{
+    display: flex;
+}
+
+.time-formate{
+    padding-left: 4px;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.battery-display{
+    width: 225px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.battery-value{
+    border: none;
+    outline: none;
+}
+
+.bettery-input{
+    width: 225px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.show-percentage, .hide-payment, .Dual-Sim{
+    display: flex;
+}
+
+.pps{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.background, .reset{
+    border: none;
+    background-color: #1cb9c8;
+    padding: 10px 20px 10px 20px;
+    color: white;
+}
+
+.reset{
+    background-color: #d9534f;
+}
+
+.file{
+    display: none;
+}
+
+.preview-screen{
+    background-image: url("screen-pattern.webp");
+    background-size: cover;
+    background-position: center;
+    width: 68%;
+    padding-top: 50px;
+    padding-left: 30px;
+    margin-top: 100px;
+}
+
+.main-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-btn{
+    padding: 10px 20px;
+    background: #fff;
+    display: inline-block;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-android{
+    display: flex;
+    border: 1px solid;
+    width: 365px;
+    height: 600px;
+    margin-left: 33%;
+    flex-direction: column;
+}
+
+.header{
+    background-color: #128c7e;
+    height: 110px;
+}
+
+.top-header{
+    display: flex;
+    gap: 175px;
+    padding: 12px;
+}
+
+.single-battery{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.android-batter{
+    width: 20px;
+    height: 11px;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+.battery-charging{
+    background-color: white;
+    width: 90%;
+    height: 11px;
+}
+
+.profile-pic{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+
+.top-second-header{
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic-upload{
+    display: none;
+}
+
+.fa-cloud-upload{
+    position: absolute;
+    margin-left: 52px;
+    margin-top: 28px;
+    color: white;
+    background-color: gray;
+    font-size: 12px;
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.profile{
+    display: flex;
+}
+
+.profile-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.name-status{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name, .status{
+    border: none;
+    color: white;
+    background-color: transparent;
+    outline: none;
+}
+
+.call-video-option{
+    display: flex;
+    gap: 20px;
+    margin-left: 38px;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-section{
+    background-image: url("Whatsapp_bg_light.webp");
+    height: 100%;
+}
+
+.date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.date-input{
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 18px;
+    width: 130px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.send-chat{
+    background-color: #e3fcd7;
+    min-width: 84px;
+    max-width: 70%;
+    position: relative;
+    margin-left: auto;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    display: flex;
+    float: right;
+    position: relative;
+    flex-direction: column;
+    border-radius: 9px 0px 9px 9px;
+    padding-right: 8px;
+    box-shadow: 0px 1.5px 0px 0px #8080804a;
+    margin-bottom: 12px;
+}
+
+.send-msg-activity{
+    margin-top: -10px;
+    margin-right: 4px;
+}
+
+.send-time{
+    color: rgb(0, 0, 0, 0.45);
+    font-size: 12px;
+}
+
+.send-status{
+    font-size: 12px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.anchore{
+    position: relative;
+    float: right;
+    margin-right: 12px;
+}
+
+.msg{
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.send{
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.sender{
+    position: relative;
+    height: 60px;
+}

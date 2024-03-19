@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img class="logo" src="logo.png" alt="">
+        </div>
+    </header>
+    
+    <div class="heading">
+        <h2>Fake Whatsapp Chat Generator</h2>
+    </div>
+
+    <div class="buttons">
+        <button class="view-btn-desktop">Desktop View <i class='fas fa-desktop'></i></button>
+        <button class="view-btn-mobile">Mobile View <i class='fas fa-mobile'></i></button>
+    </div>
+
+    <div class="controller">
+        <div class="controller-screen">
+            <div class="layout-and-contoller">
+                <div class="hft">
+    
+                    <div class="hide-header">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                         </label>
+                         <p>Hide Header</p>
+                    </div>
+    
+                    <div class="hide-header">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                         </label>
+                         <p>Hide Footer</p>
+                    </div>
+    
+                    <div class="hide-header">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                         </label>
+                         <p>Dark Mode</p>
+                    </div>
+    
+                    <div class="btn">
+                        <input id="b-img" class="file" type="file">
+                        <button id="b-btn" class="background">Change Background</button>
+                        <button class="reset">Reset</button>
+                    </div>
+    
+                </div>
+    
+                <div class="layout">
+                    <div class="layout-opt">
+                        <p>Layout:</p>
+                        <input type="radio" id="android-screen" name="screen" value="android" checked="true">
+                        <label for="android">Android</label>
+                        <input type="radio" id="ios-screen" name="screen" value="ios">
+                        <label for="ios">IOS</label> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="network-battery">
+                <div class="network-opt">
+                    <p>Network</p>
+                    <select class="network" name="Network" id="">
+                        <option value="5G">5G</option>
+                        <option value="4G">4G</option>
+                        <option value="3G">3G</option>
+                        <option value="2G">2G</option>
+                        <option value="WiFi">WiFi</option>
+                    </select>
+                </div>
+    
+                <div class="time">
+                    <div class="time-opt">
+                        <p>10:04 am</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round">
+                                <p class="time-formate">12</p>
+                            </span>
+                         </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="battery">
+                <div class="battery-opt">
+                    <select class="battery-display" name="bettery" id="">
+                        <option value="horizontal">Horizontal</option>
+                        <option value="vertical-1">vertical-1</option>
+                        <option value="vertical-2">vertical-2</option>
+                    </select>
+                </div>
+
+                <div class="bettery-input">
+                    <input class="battery-value" type="text" name="battery-per" id="" value="50">
+                    <label for="battery-per">%Battery</label>
+                </div>
+            </div>
+
+            <div class="pps">
+
+                <div class="show-percentage">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                     </label>
+                     <p>Hide Header</p>
+                </div>
+
+                <div class="hide-payment">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                     </label>
+                     <p>Hide Footer</p>
+                </div>
+
+                <div class="Dual-Sim">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                     </label>
+                     <p>Dark Mode</p>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main-screen">
+        <div class="preview-screen">
+            <button class="preview-btn">Live Preview</button>
+            <div class="mobile-android">
+                <div class="header">
+                    <div class="top-header">
+                        <p style="color: white;" >10:04 am</p>
+                        <div class="single-battery">
+                            <p style="color: white;">5G</p>
+                            <i class="fa fa-signal" style="color: white;"></i>
+                            <p style="color: white;">50%</p>
+                            <div class="android-batter">
+                                <div class="battery-charging"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-second-header">
+                        <div class="profile">
+                            <div class="profile-section">
+                                <span style="color: white;">&#8592;</span>
+                                <img id="profile-pic" class="profile-pic" src="blank-profile-picture-973460_1280.png" alt="">
+                                <input id="profile-img" class="profile-pic-upload" type="file">
+                                <i id="upload-profile-img" class="fa fa-cloud-upload"></i>
+                            </div>
+                            <div class="name-status">
+                                <input class="name" type="text" value="Kapil Kumar">
+                                <input class="status" type="text" value="online">
+                            </div>
+                            <div class="call-video-option">
+                                <i class="fa fa-video-camera" style="color: white;"></i>
+                                <i class="fa fa-phone" style="color: white;"></i>
+                                <p style="color: white; font-size: 18px;">&#8942;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="chat-section" class="chat-section">
+                    <div class="date">
+                        <input class="date-input" type="text" name="" id="" value="26 November 2020">
+                    </div>
+                    <div class="sender">
+                        <div class="anchore">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 12.19" height="21" width="12">
+                                <path d="M5.19,1H0V12.19L6.47,3.57C7.53,2.16,7,1,5.19,1Z" style="isolation:isolate;opacity:0.12999999523162842"></path>
+                                <path d="M5.19,0H0V11.19L6.47,2.57C7.53,1.16,7,0,5.19,0Z" style="fill:#e6ffda" class="msg-arrow-right"></path>
+                                </svg>
+                        </div>
+                        <div class="send-chat">
+                            <div id="text-msg-send" class="msg">
+                                <p class="send">Hi falfjoi iajfioajofi ja fjoas </p>
+                            </div>
+                            <div class="send-msg-activity">
+                                <div class="send-status">
+                                    <p class="send-time">4:12am</p>
+                                    <svg viewBox="0 0 16 11" height="11" width="16" fill="#53bdeb" preserveAspectRatio="xMidYMid meet">
+                                        <path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path>
+                                        </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sender">
+                        <div class="anchore">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 12.19" height="21" width="12">
+                                <path d="M5.19,1H0V12.19L6.47,3.57C7.53,2.16,7,1,5.19,1Z" style="isolation:isolate;opacity:0.12999999523162842"></path>
+                                <path d="M5.19,0H0V11.19L6.47,2.57C7.53,1.16,7,0,5.19,0Z" style="fill:#e6ffda" class="msg-arrow-right"></path>
+                                </svg>
+                        </div>
+                        <div class="send-chat">
+                            <div id="text-msg-send" class="msg">
+                                <p class="send">Hi falfjoi iajfioajofi ja fjoas </p>
+                            </div>
+                            <div class="send-msg-activity">
+                                <div class="send-status">
+                                    <p class="send-time">4:12am</p>
+                                    <svg viewBox="0 0 16 11" height="11" width="16" fill="#53bdeb" preserveAspectRatio="xMidYMid meet">
+                                        <path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path>
+                                        </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
