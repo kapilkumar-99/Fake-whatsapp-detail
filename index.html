@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>    
+    <title>Document</title>
 </head>
 <body>
     <header>
@@ -145,7 +149,7 @@
     <div class="main-screen">
         <div class="preview-screen">
             <button class="preview-btn">Live Preview</button>
-            <div class="mobile-android">
+            <div id="chat-download" class="mobile-android">
                 <div class="header">
                     <div class="top-header">
                         <p style="color: white;" >10:04 am</p>
@@ -182,54 +186,144 @@
                     <div class="date">
                         <input class="date-input" type="text" name="" id="" value="26 November 2020">
                     </div>
-                    <div class="sender">
-                        <div class="anchore">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 12.19" height="21" width="12">
-                                <path d="M5.19,1H0V12.19L6.47,3.57C7.53,2.16,7,1,5.19,1Z" style="isolation:isolate;opacity:0.12999999523162842"></path>
-                                <path d="M5.19,0H0V11.19L6.47,2.57C7.53,1.16,7,0,5.19,0Z" style="fill:#e6ffda" class="msg-arrow-right"></path>
-                                </svg>
-                        </div>
-                        <div class="send-chat">
-                            <div id="text-msg-send" class="msg">
-                                <p class="send">Hi falfjoi iajfioajofi ja fjoas </p>
+                    <div id="chatting" class="chatting">
+                        <div class="sender">
+                            <div class="anchore">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 12.19" height="21" width="12">
+                                    <path d="M5.19,1H0V12.19L6.47,3.57C7.53,2.16,7,1,5.19,1Z" style="isolation:isolate;opacity:0.12999999523162842"></path>
+                                    <path d="M5.19,0H0V11.19L6.47,2.57C7.53,1.16,7,0,5.19,0Z" style="fill:#e6ffda" class="msg-arrow-right"></path>
+                                    </svg>
                             </div>
-                            <div class="send-msg-activity">
-                                <div class="send-status">
-                                    <p class="send-time">4:12am</p>
-                                    <svg viewBox="0 0 16 11" height="11" width="16" fill="#53bdeb" preserveAspectRatio="xMidYMid meet">
-                                        <path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path>
-                                        </svg>
+                            <div class="send-chat">
+                                <div id="text-msg-send" class="msg">
+                                    <!-- <input class="send" type="text" name="" id=""> -->
+                                    <p class="send">Hi</p>
+                                </div>
+                                <div class="send-msg-activity">
+                                    <div class="send-status">
+                                        <p class="send-time">4:12am</p>
+                                        <svg viewBox="0 0 16 11" height="11" width="16" fill="#53bdeb" preserveAspectRatio="xMidYMid meet">
+                                            <path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path>
+                                            </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="receiver">
+                            <div class="receiver-anchore">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 12.19" height="21" width="12">
+                                    <path d="M1.81,1H7V12.19L.53,3.57C-.53,2.16,0,1,1.81,1Z" style="isolation:isolate;opacity:0.12999999523162842"></path>
+                                    <path d="M1.81,0H7V11.19L.53,2.57C-.53,1.16,0,0,1.81,0Z" style="fill:#ffffff" class="msg-arrow-left"></path>
+                                </svg>
+                            </div>
+                            <div class="receive-chat">
+                                <div id="text-msg-receive" class="receive-msg">
+                                    <!-- <input class="send" type="text" name="" id=""> -->
+                                    <p class="receive">Hi</p>
+                                </div>
+                                <div class="receive-msg-activity">
+                                    <div class="receive-status">
+                                        <p class="receive-time">4:12am</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="sender">
-                        <div class="anchore">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 12.19" height="21" width="12">
-                                <path d="M5.19,1H0V12.19L6.47,3.57C7.53,2.16,7,1,5.19,1Z" style="isolation:isolate;opacity:0.12999999523162842"></path>
-                                <path d="M5.19,0H0V11.19L6.47,2.57C7.53,1.16,7,0,5.19,0Z" style="fill:#e6ffda" class="msg-arrow-right"></path>
+                    <div class="msg-type-section">
+                        <div id="writing-section" class="writing-section">
+                            <div class="img">
+                                <svg class="icon-light" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24.5 24.5" style="enable-background:new 0 0 24.5 24.5;" xml:space="preserve" height="25" width="25">
+                                <circle fill="#90a4ae" cx="12.2" cy="12.2" r="12"></circle>
+                                <circle fill="#FFFFFF" cx="12.2" cy="12.2" r="10.2"></circle>
+                                <ellipse fill="#90a4ae" cx="9.2" cy="9.7" rx="1.6" ry="2.1"></ellipse>
+                                <path fill="#90a4ae" d="M5.7,13.3c0-0.3-0.1,5.7,6.6,6.1c6.6-0.3,6.6-6.1,6.6-6.1C12.3,14.9,5.7,13.3,5.7,13.3z M12.5,16.7 c-3.8,0-5.9-1.3-6.1-2.1c0,0,6.4,1.2,11.6,0C18,14.5,17.3,16.7,12.5,16.7z"></path>
+                                <ellipse fill="#90a4ae" cx="15.6" cy="9.7" rx="1.6" ry="2.1"></ellipse>
                                 </svg>
                         </div>
-                        <div class="send-chat">
-                            <div id="text-msg-send" class="msg">
-                                <p class="send">Hi falfjoi iajfioajofi ja fjoas </p>
-                            </div>
-                            <div class="send-msg-activity">
-                                <div class="send-status">
-                                    <p class="send-time">4:12am</p>
-                                    <svg viewBox="0 0 16 11" height="11" width="16" fill="#53bdeb" preserveAspectRatio="xMidYMid meet">
-                                        <path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path>
-                                        </svg>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="placeholder-msg">Message</p>
+                        <i class="fa fa-paperclip"></i>
+                        <span class="ind-rupees">&#8377;</span>
+                        <i class="fa fa-camera" style="font-size:24px"></i>
+                        <i class="fa fa-microphone"></i>
                     </div>
-                    
-                </div>
             </div>
         </div>
+            </div>
+        </div>
+    </div>        
+    <div id="msg-box" class="msg-box">
+        <div class="close-box">
+            <span id="close-box-btn" class="close-box-btn">&#10006</span>
+        </div>
 
+        <div class="send-receive-btn">
+            <label class="send-btn" for="" id="send-section-btn">Send</label>
+            <input class="msg-type-toggle" type="radio" name="msgSendRecive" id="sent-toggle" checked="true">
+
+            <label class="receive-btn" for="" id="receive-section-btn">Recieve</label>
+            <input class="msg-type-toggle" type="radio" name="msgSendRecive" id="recieve-toggle">
+            <!-- <button class="send-btn">Sender</button>
+            <button class="receive-btn">Receiver</button> -->
+        </div>
+
+        <div class="msg-type">
+            <input type="radio" id="type-msg-message" name="Message" value="message" checked="true">
+            <label for="message">Message</label>
+
+            <input type="radio" id="type-msg-disappearig" name="Message" value="disappearing">
+            <label for="disappearing">Disapperaring</label>
+        </div>
+
+        <div class="select-img-send">
+            <img id="img-selected" class="selected-img" src="blank-profile-picture-973460_1280.png" alt="">
+        </div>
+
+        <div class="msg-input">
+            <textarea name="" id="msg-input-send" cols="38" rows="10"></textarea>
+            <i id="send-msg-img" class="fa fa-image"></i>
+            <input id="msg-send-img" type="file" style="display: none;">
+        </div>
+        <div class="msg-time-sent-status">
+            <!-- <input type="time" class="message-time-input" id="faltu" value="04:00"> -->
+            <input type="time" id="time" class="message-time-input" value="04:00">
+            <select class="chat-day" name="chat-day" id="custom-chat-day">
+                <option value="none">None</option>
+                <option value="today">Today</option>
+                <option value="yesterday">Yesterday</option>
+            </select>
+        </div>
+        <div class="msg-send-delivery-status">
+            <div class="send-custom-msg">
+                <input type="radio" name="msg-send" id="sending">
+                <i id="clock-icon" class="far fa-clock"></i>
+                <label class="sending-label" for="sending">Sending</label>
+    
+                <input type="radio" name="msg-send" id="send">
+                <svg class="msg-send-tick" viewBox="0 0 12 11" height="11" width="12" preserveAspectRatio="xMidYMid meet" style="fill: #8696a0;"><path d="M11.1549 0.652832C11.0745 0.585124 10.9729 0.55127 10.8502 0.55127C10.7021 0.55127 10.5751 0.610514 10.4693 0.729004L4.28038 8.36523L1.87461 6.09277C1.8323 6.04622 1.78151 6.01025 1.72227 5.98486C1.66303 5.95947 1.60166 5.94678 1.53819 5.94678C1.407 5.94678 1.29275 5.99544 1.19541 6.09277L0.884379 6.40381C0.79128 6.49268 0.744731 6.60482 0.744731 6.74023C0.744731 6.87565 0.79128 6.98991 0.884379 7.08301L3.88047 10.0791C4.02859 10.2145 4.19574 10.2822 4.38194 10.2822C4.48773 10.2822 4.58929 10.259 4.68663 10.2124C4.78396 10.1659 4.86436 10.1003 4.92784 10.0156L11.5738 1.59863C11.6458 1.5013 11.6817 1.40186 11.6817 1.30029C11.6817 1.14372 11.6183 1.01888 11.4913 0.925781L11.1549 0.652832Z"></path></svg>
+                <label for="send">Send</label>
+            </div>
+            <div class="delivered-read">
+                <input type="radio" name="msg-send" id="delivered">
+                <svg class="msg-deliver-tick" viewBox="0 0 16 11" height="11" width="16" preserveAspectRatio="xMidYMid meet" style="fill: #8696a0;"><path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path></svg>
+                <label class="msg-deliver-label" for="delivered">Delivered</label>
+    
+                <input type="radio" name="msg-send" id="read" checked="true">
+                <svg viewBox="0 0 16 11" height="11" width="16" preserveAspectRatio="xMidYMid meet" style="fill: #53bdeb;"><path d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"></path></svg>
+                <label for="read">Read</label>
+            </div>
+        </div>
+        <div class="send-btn-div">
+            <button id="btn-msg-send" class="msg-send-btn">Send <i class="far fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </div>
+    
+    </div>
+    <div class="download-btn">
+
+        <!-- <canvas id="canvas"></canvas><br> -->
+        <a id="download-chat-btn" class="download" href="" download="">Download</a>
+        <!-- <button id="download-chat-btn" class="download" hreg>Download</button> -->
     </div>
     <script src="script.js"></script>
 </body>

@@ -267,7 +267,7 @@ input:focus + .slider {
 }
 .battery-charging{
     background-color: white;
-    width: 90%;
+    width: 50%;
     height: 11px;
 }
 
@@ -347,10 +347,12 @@ input:focus + .slider {
     outline: none;
     background-color: white;
     border-radius: 5px;
-    padding-left: 18px;
+    /* padding-left: 18px; */
     width: 130px;
     padding-top: 8px;
     padding-bottom: 8px;
+    text-align: center;
+    color: #667781;
 }
 
 .send-chat{
@@ -402,11 +404,341 @@ input:focus + .slider {
 }
 
 .send{
-    font-size: 15px;
+    font-size: 12px;
     font-family: sans-serif;
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
 
 .sender{
     position: relative;
+    /* min-height: 60px; */
+    max-height: 320px;
+    height: auto;
+}
+
+.receive-chat{
+    background-color: #fff;
+    min-width: 84px;
+    max-width: 70%;
+    position: relative;
+    margin-right: auto;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border-radius: 0px 9px 9px 9px;
+    padding-right: 8px;
+    box-shadow: 0px 1.5px 0px 0px #8080804a;
+    margin-bottom: 24px;
+}
+
+.receive-msg-activity{
+    margin-top: -10px;
+    margin-right: 4px;
+}
+
+.receive-time{
+    color: rgb(0, 0, 0, 0.45);
+    font-size: 12px;
+}
+
+.receive-status{
+    font-size: 12px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.receiver-anchore{
+    position: relative;
+    margin-left: 12px;
+}
+
+.receive-msg{
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.receive{
+    font-size: 15px;
+    font-family: sans-serif;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.receiver{
+    position: relative;
     height: 60px;
+    display: flex;
+}
+
+.chatting{
+    /* height: 380px; */
+    height: 380px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .msg-type-section{
+    border: 1px solid black;
+    height: 20px;
+} */
+
+.writing-section{
+    width: 80%;
+    padding-top: 2px;
+    padding-bottom: 0px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    gap: 8px;
+    padding-left: 12px;
+    margin-left: 3px;
+}
+
+.placeholder-msg{
+    color: #90a4ae;
+    margin-right: 116px;
+}
+.fa-paperclip{
+    color: #90a4ae;
+    transform: rotate(280deg)
+}
+
+.ind-rupees{
+    padding-left: 5px;
+    background-color: #90a4ae;
+    font-size: 16px;
+    border-radius: 19px;
+    padding-right: 5px;
+    color: white;
+}
+
+.fa-camera{
+    color: #90a4ae;
+    font-size: 20px;
+}
+
+.fa-microphone{
+    background-color: #128c7e;
+    color: white;
+    margin-left: 12px;
+    font-size: 24px;
+    padding: 9px 12px 9px 12px;
+    border-radius: 26px;
+}
+
+.msg-box {
+    width: 281px;
+    min-height: 385px;
+    height: auto;
+    max-width: 600px;
+    background-color: white;
+    position: absolute;
+    left: 42%;
+    top: -173%;
+    transform: scaleY(100%);
+    transition: 3ms;
+    transition-timing-function: cubic-bezier(.53,.47,.81,.84);
+    padding: 10px;
+}
+
+.close-box-btn{
+    font-size: 15px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.send-receive-btn{
+    border: 1px solid lightseagreen;
+    width: 50%;
+    border-radius: 15px;
+    margin-top: 12px;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    gap: 16px;
+}
+
+.send-btn{
+    border: none;
+    outline: none;
+    background-color: #48c5d1;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+}
+
+.receive-btn{
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    color: #48c5d1;
+    font-size: 15px;
+    border-radius: 15px;
+}
+
+.msg-type{
+    margin-top: 10px;
+}
+
+.write-msg{
+    height: 100px;
+    width: 90%;
+}
+
+/* .msg-input{
+    border: 1px solid black;
+    display: flex;
+    align-items: self-end;
+} */
+
+.select-img-send{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-img{
+    height: auto;
+    width: auto;
+    max-height: 150px;
+    max-width: 200px;
+    display: none;
+}
+
+textarea{
+    resize: none;
+    outline: none;
+}
+
+.fa-image{
+    color: white;
+    background-color: #48c5d1;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: -41px;
+    margin-top: 109px;
+}
+
+.message-time-input{
+    cursor: text;
+}
+
+.chat-day{
+    padding: 5px 10px 5px 10px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #48c5d1;
+    color: #48c5d1;
+}
+
+.msg-time-sent-status{
+    margin-top: 12px;
+}
+
+.message-time-input{
+    padding: 5px 10px 5px 10px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #48c5d1;
+
+}
+
+.msg-send-delivery-status{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.send-custom-msg{
+    display: flex;
+    align-items: center;
+}
+
+.delivered-read{
+    display: flex;
+    align-items: center;
+}
+
+.fa-clock{
+    font-size: 12px;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: gray;
+}
+
+.sending-label{
+    margin-right: 70px;
+}
+
+.msg-send-tick{
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.msg-deliver-tick{
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.msg-deliver-label{
+    margin-right: 56px; 
+}
+
+.send-btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.msg-send-btn{
+    border: none;
+    padding: 8px 20px 8px 20px;
+    background-color: #48c5d1;
+    color: white;
+    border-radius: 9px;
+}
+
+.download-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.download{
+    background-color: #48c5d1;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    outline: none;
+    border: none;
+}
+
+.msg-type-toggle{
+    /* visibility: hidden; */
+    display: none;
+    /* position: absolute; */
 }
