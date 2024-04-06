@@ -61,15 +61,20 @@ header{
 
 .controller-screen{
     border: 2px solid black;
-    width: 68%;
+    width: 70%;
     display: flex;
     gap: 35px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 19px;
+    padding-right: 19px;
 }
 .switch {
     position: relative;
     display: inline-block;
     width: 44px;
     height: 22px;
+    margin-right: 4px;
 }
 
 .switch input { 
@@ -147,6 +152,11 @@ input:focus + .slider {
 
 .time-opt{
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid;
+    padding: 10px 5px 10px 5px;
+    border-radius: 7px;
 }
 
 .time-formate{
@@ -154,6 +164,7 @@ input:focus + .slider {
     font-size: 12px;
     margin-top: 4px;
     font-weight: bold;
+    margin-left: 19px;
 }
 
 .battery-display{
@@ -164,12 +175,21 @@ input:focus + .slider {
     border: 1px solid black;
     border-radius: 5px;
     padding-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 17px;
+}
+
+#dual-sim{
+    display: none;
 }
 
 .battery-value{
     border: none;
     outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 }
+
 
 .bettery-input{
     width: 225px;
@@ -248,8 +268,12 @@ input:focus + .slider {
 
 .top-header{
     display: flex;
-    gap: 175px;
+    gap: 170px;
     padding: 12px;
+}
+
+.screen-time{
+    width: 76px;
 }
 
 .single-battery{
@@ -261,14 +285,31 @@ input:focus + .slider {
 
 .android-batter{
     width: 20px;
-    height: 11px;
+    height: 9px;
     border: 1px solid white;
     border-radius: 2px;
+}
+
+.battery-top{
+    content: "";
+    width: 2px;
+    height: 4px;
+    display: inline-block;
+    background-color: white;
+    position: relative;
+    right: -21.5px;
+    top: -17px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.date-change{
+    display: none;
 }
 .battery-charging{
     background-color: white;
     width: 50%;
-    height: 11px;
+    height: 9px;
 }
 
 .profile-pic{
@@ -312,6 +353,7 @@ input:focus + .slider {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 12px;
 }
 
 .name, .status{
@@ -320,11 +362,16 @@ input:focus + .slider {
     background-color: transparent;
     outline: none;
 }
+.name{
+    font-weight: 600;
+}
+.status{
+    font-weight: 300;
+}
 
 .call-video-option{
     display: flex;
     gap: 20px;
-    margin-left: 38px;
     justify-content: center;
     align-items: center;
 }
@@ -347,12 +394,16 @@ input:focus + .slider {
     outline: none;
     background-color: white;
     border-radius: 5px;
-    /* padding-left: 18px; */
-    width: 130px;
+    padding-left: 18px;
+    width: auto;
     padding-top: 8px;
     padding-bottom: 8px;
     text-align: center;
-    color: #667781;
+    color: #aebac1;
+    max-width: 130px;
+    min-width: 56px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .send-chat{
@@ -404,11 +455,11 @@ input:focus + .slider {
 }
 
 .send{
-    font-size: 12px;
-    font-family: sans-serif;
-    border: none;
-    outline: none;
-    background-color: transparent;
+    font-size: 15px;
+    padding-left: 3px;
+    color: var(--msg-text-color);
+    word-wrap: break-word;
+    font-family: "Open Sans", sans-serif;
 }
 
 .sender{
@@ -466,21 +517,21 @@ input:focus + .slider {
 
 .receive{
     font-size: 15px;
-    font-family: sans-serif;
-    border: none;
-    outline: none;
-    background-color: transparent;
+    padding-left: 3px;
+    color: var(--msg-text-color);
+    word-wrap: break-word;
+    font-family: "Open Sans", sans-serif;
 }
 
 .receiver{
     position: relative;
-    height: 60px;
+    min-height: 60px;
+    height: auto;
     display: flex;
 }
 
 .chatting{
-    /* height: 380px; */
-    height: 380px;
+    height: 455px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -741,4 +792,47 @@ textarea{
     /* visibility: hidden; */
     display: none;
     /* position: absolute; */
+}
+
+.mobile-time{
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    margin-right: 54px;
+}
+
+.time{
+    margin-top: 15px;
+}
+
+.phone-time{
+    display: flex;
+}
+
+.delet-btn{
+    border: none;
+    color: red;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.delete-chat{
+    border: none;
+    background-color: transparent;
+    position: inherit;
+    float: right;
+    left: -13px;
+    top: 8px;
+}
+
+.delete-receive-chat{
+    border: none;
+    background-color: transparent;
+    top: 12px;
+    position: absolute;
+    color: red;
+}
+
+.fa-trash-o{
+    color: red;
 }

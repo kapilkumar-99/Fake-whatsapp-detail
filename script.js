@@ -39,12 +39,300 @@ let imgVar;
 const msgSendTime = document.getElementById('time');
 
 var sendMsgCounter = 0;
+var receiveMsgCounter = 1;
 
 const sendToggleBtn = document.getElementById('send-section-btn');
 const sendInputToggle = document.getElementById('sent-toggle');
 sendInputToggle.checked = true;
 const receiveToggleBtn = document.getElementById('receive-section-btn');
 const recieveInputToggle = document.getElementById('recieve-toggle');
+
+const batteryCharging = document.getElementById('battery-charging');
+const batteryValue = document.getElementById('battery-value');
+const batteryPercentage = document.getElementById('battery-percentage');
+
+const headerSwitch = document.getElementById('header-switch');
+const hideHeader = document.getElementById('hide-header');
+const topHeader = document.getElementById('top-header');
+
+const footerSwitch = document.getElementById('footer-switch');
+const hideFooter = document.getElementById('hide-footer');
+const chatFooter = document.getElementById('chat-footer');
+
+const mobileTimeInput = document.getElementById('mobile-time-input');
+const mobileScreenTime = document.getElementById('mobile-screen-time');
+
+const hidePercentageBtn = document.getElementById('percentage-switch');
+const hidePercentageValue = document.getElementById('hide-percentage');
+hidePercentageValue.checked = false;
+
+const dualSimBtn = document.getElementById('sim-switch');
+const dualSimeValue = document.getElementById('hide-sim');
+const dualSim = document.getElementById('dual-sim');
+dualSimeValue.value.checked = false;
+
+const paymentBtn = document.getElementById('payment-switch');
+const paymentValue = document.getElementById('payment-value');
+const paymentIcon = document.getElementById('payment-icon');
+const inputField = document.getElementById('input-field');
+paymentValue.checked = false;
+
+const chatDateBtn = document.getElementById('delete-date');
+const chatDayDate = document.getElementById('chat-day-date');
+const chatDate = document.getElementById('date-input');
+const changeDate = document.getElementById('date-change');
+const chatDateSection = document.getElementById('chat-date')
+
+var changeDateCounter = 0;
+
+const internet = document.getElementById('internet-network');
+const network = document.getElementById('network');
+internet.value = '5G';
+
+const timeSwitch = document.getElementById('time-switch');
+const timeValue = document.getElementById('time-value')
+const displayTime = document.getElementById('display-time');
+
+const deleteSendChat = document.getElementById('delete-send-chat');
+const sendChat = document.getElementById('sender');
+
+const deleteRecieveChat = document.getElementById('delete-receive-chat');
+const recieveChat = document.getElementById('receive');
+
+const modeSwitch = document.getElementById('mode-switch');
+const modeValue = document.getElementById('mode-value');
+const mobileHeader = document.getElementById('mobile-header');
+
+modeSwitch.addEventListener('click', function(){
+    const chatDates = document.querySelectorAll('.date-input');
+    const recieveChats = document.querySelectorAll('.receive-chat')
+    const receiveAnchore = document.querySelectorAll('.msg-arrow-left');
+    const receiveChatMsg = document.querySelectorAll('.receive');
+    const receiveMsgTime = document.querySelectorAll('.receive-time');
+
+    if(modeValue.checked == false){
+        for(var i=0; i<chatDates.length; i++){
+            chatDates[i].style.backgroundColor = 'white';
+        }
+        for(var j=0; j<recieveChats.length; j++){
+            recieveChats[j].style.backgroundColor = "#fff";
+        }
+        for(var k=0; k<receiveAnchore.length; k++){
+            receiveAnchore[k].style.fill = "#fff";
+        }
+        for(var l=0; l<receiveChatMsg.length; l++){
+            receiveChatMsg[l].style.color = "#000";
+        }
+        for(var m=0; m<receiveMsgTime.length; m++){
+            receiveMsgTime[m].style.color = "rgb(0, 0, 0, 0.45)";
+        }
+        mobileHeader.style.backgroundColor = '#128c7e';
+        chatSection.style.backgroundImage = "url('Whatsapp_bg_light.webp')";
+    }
+    else{
+        for(var i=0; i<chatDates.length; i++){
+            chatDates[i].style.backgroundColor = '#1f2b32';
+        }
+        for(var j=0; j<recieveChats.length; j++){
+            recieveChats[j].style.backgroundColor = "#1f2b32";
+        }
+        for(var k=0; k<receiveAnchore.length; k++){
+            receiveAnchore[k].style.fill = "#1f2b32";
+        }
+        for(var l=0; l<receiveChatMsg.length; l++){
+            receiveChatMsg[l].style.color = "#fff";
+        }
+        for(var m=0; m<receiveMsgTime.length; m++){
+            receiveMsgTime[m].style.color = "#fff";
+        }
+        mobileHeader.style.backgroundColor = '#1f2b32';
+        chatSection.style.backgroundImage = "url('Whatsapp_bg_dark.webp')"; 
+        // recieveChats.style.backgroundColor = "#128c7e";
+    }
+})
+
+// const chatDates = document.querySelectorAll('.date-input');
+
+deleteRecieveChat.addEventListener('click', function(){
+    recieveChat.style.display = "none";
+    receiveMsgCounter = 0;
+})
+
+deleteSendChat.addEventListener('click', function(){
+    sendChat.style.display = "none";
+})
+
+timeSwitch.addEventListener('click', function(){
+    if(timeValue.checked == false){
+        displayTime.style.marginLeft = '19px'
+        displayTime.innerHTML = '12';
+        let [hours, mins] = mobileTimeInput.value.split(":");
+            if(hours > 12){
+                hours -= 12;
+                console.log(hours);
+                mobileScreenTime.innerText = hours+':'+mins+' pm';
+            }
+            else if (hours == 0){
+                hours = 12;
+                mobileScreenTime.innerText = hours+':'+mins+' pm';
+                console.log(hours);
+            }
+            else{
+    
+                mobileScreenTime.innerText = mobileTimeInput.value+' am';
+            }
+    }
+    else if(timeValue.checked == true){
+        mobileScreenTime.innerText = mobileTimeInput.value;
+        displayTime.style.marginLeft = '0px'
+        displayTime.innerHTML = '24';
+    }
+})
+
+
+internet.addEventListener('change', function(){
+    if(internet.value == '5G'){
+        network.innerHTML = '5G';
+    }
+    else if(internet.value == '4G'){
+        network.innerHTML = 'LTE'
+    }
+    else if(internet.value == '3G'){
+        network.innerHTML = 'H+';
+    }
+    else if(internet.value == '2G'){
+        network.innerHTML = 'E';
+    }
+    else{
+        network.innerHTML = `<i class="fa fa-wifi"></i>`; 
+    }
+})
+
+
+chatDayDate.addEventListener('click', function(e){
+    changeDate.style.display = 'block';
+    e.stopPropagation();
+})
+changeDate.addEventListener('click', function(e){
+    e.stopPropagation();
+})
+chatDateSection.addEventListener('click', function(){
+    chatDayDate.innerHTML = changeDate.value;
+    changeDate.style.display = 'none';
+    changeDateCounter = 0;
+})
+
+
+chatDateBtn.addEventListener('click', function(){
+    chatDayDate.style.display = 'none';
+    chatDateBtn.style.display = 'none';
+})
+
+paymentBtn.addEventListener('click', function(){
+    if(paymentValue.checked == false){
+        paymentIcon.style.display = 'block'
+        inputField.style.marginRight = "116px"
+    }
+    else{
+        paymentIcon.style.display = 'none';
+        inputField.style.marginRight = "141px"
+    }
+})
+
+hidePercentageBtn.addEventListener('click', function(){
+    if(hidePercentageValue.checked == true){
+        batteryPercentage.style.display = 'none';
+        if(dualSimeValue.checked == true){
+            topHeader.style.gap = "184px";
+        }
+        else{
+            topHeader.style.gap = "196px";
+        }
+    }
+    else{
+        batteryPercentage.style.display = 'block';
+        if(dualSimeValue.checked == true){
+            topHeader.style.gap = "150px";
+        }
+        else{
+
+            topHeader.style.gap = "173px";
+        }
+    }
+})
+
+dualSimBtn.addEventListener('click', function(){
+    if(dualSimeValue.checked == true){
+        dualSim.style.display = 'block';
+        if(hidePercentageValue.checked == true){
+            topHeader.style.gap = "184px";
+        }
+        else{
+            topHeader.style.gap = "150px";
+        }
+    }
+    else{
+        dualSim.style.display = 'none';
+        if(hidePercentageValue.checked == true){
+            topHeader.style.gap = "194px";
+        }
+        else{
+            // topHeader.style.gap = "136px";
+            topHeader.style.gap = "165px";
+        }
+    }
+})
+
+
+
+mobileTimeInput.addEventListener('change', function(){
+    if(timeValue.checked == false){
+        let [hours, mins] = mobileTimeInput.value.split(":");
+                if(hours > 12){
+                    hours -= 12;
+                    console.log(hours);
+                    mobileScreenTime.innerText = hours+':'+mins+' pm';
+                }
+                else if (hours == 0){
+                    hours = 12;
+                    mobileScreenTime.innerText = hours+':'+mins+' pm';
+                    console.log(hours);
+                }
+                else{
+        
+                    mobileScreenTime.innerText = mobileTimeInput.value+' am';
+                }
+    }
+    else if(timeValue.checked == true){
+        mobileScreenTime.innerHTML = mobileTimeInput.value;
+    }
+    // mobileScreenTime.innerHTML = mobileTimeInput.value;
+
+})
+
+footerSwitch.addEventListener('click', function(){
+    if(hideFooter.checked == true){
+        chatFooter.style.display = 'none';
+    }
+    else{
+        chatFooter.style.display = 'block';
+    }
+})
+
+headerSwitch.addEventListener('click', function(){
+    if(hideHeader.checked == true){
+        topHeader.style.display = 'none';
+    }
+    else{
+        topHeader.style.display = 'flex';
+    }
+})
+
+
+batteryValue.addEventListener('change', function(){
+    batteryCharging.style.width = batteryValue.value +"%";
+    batteryPercentage.innerHTML = batteryValue.value+"%";
+})
 
 sendToggleBtn.addEventListener('click', function(){
     // sendInputBtn.classList.remove('send-btn');
@@ -116,12 +404,41 @@ sendBtn.addEventListener('click', function(){
                 chatDay.classList.add('date');
                 const chatDate = document.createElement('p');
                 const date = document.createElement('input');
+                const deleteChatDate = document.createElement('button');
+                deleteChatDate.innerHTML = `<i class= "fa fa-trash-o"></i>`;
+                deleteChatDate.classList.add('delet-btn')
                 chatDate.classList.add('date-input');
-                if(customChatDay.value == 'today'){
-                    chatDate.innerText = 'today';
+                if(customChatDay.value == 'Today'){
+                    chatDate.innerText = 'Today';
                     chatDay.appendChild(chatDate);
                     chatting.appendChild(chatDay);
+                    chatDay.appendChild(deleteChatDate);
+                    if(modeValue.checked == false){
+                        chatDate.style.backgroundColor = 'white';
+                        
+                    }
+                    else{
+                        chatDate.style.backgroundColor = '#202c33';
+                    }
                 }
+                else if(customChatDay.value == 'Yesterday'){
+                    chatDate.innerText = 'Yesterday';
+                    chatDay.appendChild(chatDate);
+                    chatting.appendChild(chatDay);
+                    chatDay.appendChild(deleteChatDate);
+                    if(modeValue.checked == false){
+                        chatDate.style.backgroundColor = 'white';
+                        
+                    }
+                    else{
+                        chatDate.style.backgroundColor = '#202c33';
+                    }
+                }
+                deleteChatDate.addEventListener('click', function(){
+                    chatDay.removeChild(chatDate);
+                    chatting.removeChild(chatDay);
+                    chatDay.removeChild(deleteChatDate);
+                })
                 chatDate.addEventListener('click', function(e){
                     const changeDate = document.createElement('input');
                     changeDate.addEventListener('click', function(e){
@@ -159,6 +476,13 @@ sendBtn.addEventListener('click', function(){
             iconSvg.appendChild(iconPath);
             iconSvg.appendChild(iconPath2);
             iconSvg.classList.add('msg-arrow-right');
+            const deleteSendChat = document.createElement('button');
+            deleteSendChat.classList.add('delete-chat');
+            deleteSendChat.innerHTML = `<i id="delete-date" class="fa fa-trash-o"></i>`;
+            sender.appendChild(deleteSendChat);
+            deleteSendChat.addEventListener('click', function(){
+                chatting.removeChild(sender)
+            })
         
             const anchore = document.createElement('div');
             anchore.classList.add('anchore');
@@ -166,11 +490,17 @@ sendBtn.addEventListener('click', function(){
             sender.appendChild(anchore);
             sender.classList.add('sender');
             chatting.appendChild(sender);
+            
         
             const sendChat = document.createElement('div');
             sendChat.classList.add('send-chat');
+            if(sendMsgCounter > 0){
+                sendChat.style.borderRadius = "9px 9px 9px 9px";
+            }
+            
             sender.appendChild(sendChat);
             sendMsgCounter++;
+            receiveMsgCounter = 0;
             if(imgVar != null){
                 const newImgVar = document.createElement('img');
                 newImgVar.src = imgVar;
@@ -268,12 +598,43 @@ sendBtn.addEventListener('click', function(){
                 chatDay.classList.add('date');
                 const chatDate = document.createElement('p');
                 const date = document.createElement('input');
+                const deleteChatDate = document.createElement('button');
+                deleteChatDate.innerHTML = `<i class= "fa fa-trash-o"></i>`;
+                deleteChatDate.classList.add('delet-btn')
                 chatDate.classList.add('date-input');
-                if(customChatDay.value == 'today'){
-                    chatDate.innerText = 'today';
+                if(customChatDay.value == 'Today'){
+                    chatDate.innerText = 'Today';
                     chatDay.appendChild(chatDate);
                     chatting.appendChild(chatDay);
+                    chatDay.appendChild(deleteChatDate);
+                    receiveMsgCounter = 0;
+                    if(modeValue.checked == false){
+                        chatDate.style.backgroundColor = 'white';
+                        
+                    }
+                    else{
+                        chatDate.style.backgroundColor = '#202c33';
+                    }
                 }
+                else if(customChatDay.value == 'Yesterday'){
+                    chatDate.innerText = 'Yesterday';
+                    chatDay.appendChild(chatDate);
+                    chatting.appendChild(chatDay);
+                    chatDay.appendChild(deleteChatDate);
+                    receiveMsgCounter = 0;
+                    if(modeValue.checked == false){
+                        chatDate.style.backgroundColor = 'white';
+                        
+                    }
+                    else{
+                        chatDate.style.backgroundColor = '#202c33';
+                    }
+                }
+                deleteChatDate.addEventListener('click', function(){
+                    chatDay.removeChild(chatDate);
+                    chatting.removeChild(chatDay);
+                    chatDay.removeChild(deleteChatDate);
+                })
                 chatDate.addEventListener('click', function(e){
                     const changeDate = document.createElement('input');
                     changeDate.addEventListener('click', function(e){
@@ -298,7 +659,8 @@ sendBtn.addEventListener('click', function(){
             iconPath.style.isolation = "isolate";
             iconPath.style.opacity = '0.12999999523162842';
             iconPath2.setAttribute('d','M1.81,0H7V11.19L.53,2.57C-.53,1.16,0,0,1.81,0Z');
-            if(sendMsgCounter > 0 && customChatDay.value == 'none'){
+            iconPath2.classList.add('msg-arrow-left');
+            if(receiveMsgCounter > 0 && customChatDay.value == 'none'){
     
                 iconPath.style.fill = 'transparent'
                 iconPath2.style.fill = "transparent";
@@ -306,11 +668,24 @@ sendBtn.addEventListener('click', function(){
             else{
     
                 iconPath.style.fill = 'green'
-                iconPath2.style.fill = "#ffffff";
+                // if(modeValue.checked == true){
+                    iconPath2.style.fill = "#1f2b32";
+                // }
+                // else{
+                    // iconPath2.style.fill = "#ffffff";
+                // }
             }
             iconSvg.appendChild(iconPath);
             iconSvg.appendChild(iconPath2);
             iconSvg.classList.add('msg-arrow-left');
+
+            const deletereceiveChat = document.createElement('button');
+            deletereceiveChat.classList.add('delete-receive-chat');
+            deletereceiveChat.innerHTML = `<i id="delete-date" class="fa fa-trash-o"></i>`;
+            receiver.appendChild(deletereceiveChat);
+            deletereceiveChat.addEventListener('click', function(){
+                chatting.removeChild(receiver)
+            })
         
             const anchore = document.createElement('div');
             anchore.classList.add('receiver-anchore');
@@ -321,8 +696,28 @@ sendBtn.addEventListener('click', function(){
         
             const recieveChat = document.createElement('div');
             recieveChat.classList.add('receive-chat');
+            // if(modeValue.checked == true){
+            //     recieveChat.style.backgroundColor = '#1f2b32';
+            // }
+            // else if(modeValue.checked == false){
+            //     recieveChat.style.backgroundColor = 'white';
+            // }
+
+            if(receiveMsgCounter > 0){
+                recieveChat.style.borderRadius = "9px 9px 9px 9px";
+            }
+            // if(receiveMsgCounter > 0){
+            //     recieveChat.style.borderRadius = "9px 9px 9px 9px";
+            // }
             receiver.appendChild(recieveChat);
-            sendMsgCounter++;
+            if(modeValue.checked == true){
+                recieveChat.style.backgroundColor = '#1f2b32';
+            }
+            else if(modeValue.checked == false){
+                recieveChat.style.backgroundColor = 'white';
+            }
+            sendMsgCounter = 0;
+            receiveMsgCounter++;
             if(imgVar != null){
                 const newImgVar = document.createElement('img');
                 newImgVar.src = imgVar;
@@ -337,6 +732,12 @@ sendBtn.addEventListener('click', function(){
             receiveMsg.classList.add('receive-msg');
             const receive = document.createElement('p');
             receive.classList.add('receive')
+            // if(modeValue.checked = true){
+            //     receive.style.color = 'white';
+            // }
+            // else{
+            //     receive.style.color = 'black';
+            // }
     
             receive.innerHTML = newMsgSend.value;
             if(receive.innerHTML.length > 5){
@@ -353,6 +754,13 @@ sendBtn.addEventListener('click', function(){
             receiveMsgActivity.appendChild(receiveStatus);
             const receiveTime = document.createElement('p');
             receiveTime.classList.add('receive-time');
+            receiveTime.style.color = 'black';
+            if(modeValue.checked == true){
+                receiveTime.style.color = 'white';
+            }
+            else if(modeValue.checked ==  false){
+                receiveTime.style.color = 'rgb(0, 0, 0, 0.45)';
+            }
             let [hours, mins] = msgSendTime.value.split(":");
             if(hours > 12){
                 hours -= 12;
@@ -369,3 +777,25 @@ sendBtn.addEventListener('click', function(){
     }
 })
 
+downloadBtn.addEventListener('click', function(){
+    function PrintDiv(downloadChat)
+    {
+        html2canvas((downloadChat), {
+            onrendered: function(canvas) {
+                var myImage = canvas.toDataURL();
+                downloadURI(myImage, "MaSimulation.png");
+          }
+        });
+    }
+    
+    function downloadURI(uri, name) {
+        var link = document.createElement("a");
+    
+        link.download = name;
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();   
+        //after creating link you should delete dynamic link
+        //clearDynamicLink(link); 
+    }
+})
