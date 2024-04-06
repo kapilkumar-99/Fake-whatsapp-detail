@@ -32,7 +32,7 @@ const seletedImg = document.getElementById('img-selected');
 
 const customChatDay = document.getElementById('custom-chat-day');
 
-var downloadBtn = document.getElementById('download-chat-btn');
+const downloadBtn = document.getElementById('download-chat-btn');
 const downloadChat = document.getElementById('chat-download');
 
 let imgVar;
@@ -778,7 +778,39 @@ sendBtn.addEventListener('click', function(){
 })
 
 downloadBtn.addEventListener('click', function(){
-    function PrintDiv(downloadChat)
+    const receiveChatBin = document.querySelectorAll('.delete-receive-chat');
+    const sendChatBin = document.querySelectorAll('.delete-chat');
+    const dateBin = document.querySelectorAll('.delet-btn');
+    for(var i=0; i<receiveChatBin.length; i++){
+        receiveChatBin[i].style.display = 'none';
+    }
+    for(var j=0; j<sendChatBin.length; j++){
+        sendChatBin[j].style.display = 'none';
+    }
+    for(var k=0; k<dateBin.length; k++){
+        dateBin[k].style.display = 'none';
+    }
+    doCapture();
+    // PrintDiv(downloadChat);
+    for(var i=0; i<receiveChatBin.length; i++){
+        receiveChatBin[i].style.display = 'block';
+    }
+    for(var j=0; j<sendChatBin.length; j++){
+        sendChatBin[j].style.display = 'block';
+    }
+    for(var k=0; k<dateBin.length; k++){
+        dateBin[k].style.display = 'block';
+    }
+})
+function doCapture(){
+    window.scrollTo(0,0);
+    html2canvas(downloadChat).then(function (canvas){
+        var myImage = canvas.toDataURL("image/jpeg", 0.9);
+        downloadURI(myImage, "MaSimulation.png");
+    })
+}
+
+function PrintDiv(downloadChat)
     {
         html2canvas((downloadChat), {
             onrendered: function(canvas) {
@@ -787,8 +819,8 @@ downloadBtn.addEventListener('click', function(){
           }
         });
     }
-    
-    function downloadURI(uri, name) {
+
+  function downloadURI(uri, name) {
         var link = document.createElement("a");
     
         link.download = name;
@@ -797,5 +829,4 @@ downloadBtn.addEventListener('click', function(){
         link.click();   
         //after creating link you should delete dynamic link
         //clearDynamicLink(link); 
-    }
-})
+    }    
