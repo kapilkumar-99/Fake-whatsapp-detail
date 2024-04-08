@@ -102,6 +102,7 @@ const recieveChat = document.getElementById('receive');
 const modeSwitch = document.getElementById('mode-switch');
 const modeValue = document.getElementById('mode-value');
 const mobileHeader = document.getElementById('mobile-header');
+modeValue.checked = false;
 
 modeSwitch.addEventListener('click', function(){
     const chatDates = document.querySelectorAll('.date-input');
@@ -109,6 +110,10 @@ modeSwitch.addEventListener('click', function(){
     const receiveAnchore = document.querySelectorAll('.msg-arrow-left');
     const receiveChatMsg = document.querySelectorAll('.receive');
     const receiveMsgTime = document.querySelectorAll('.receive-time');
+    const sendChats = document.querySelectorAll('.send-chat');
+    const sendAnchore = document.querySelectorAll('.msg-arrow-right');
+    const sendMsgs = document.querySelectorAll('.send');
+    const sendMsgsTime = document.querySelectorAll('.send-time');
 
     if(modeValue.checked == false){
         for(var i=0; i<chatDates.length; i++){
@@ -116,6 +121,7 @@ modeSwitch.addEventListener('click', function(){
         }
         for(var j=0; j<recieveChats.length; j++){
             recieveChats[j].style.backgroundColor = "#fff";
+            recieveChats[j].style.boxShadow = '0px 1.5px 0px 0px #8080804a';
         }
         for(var k=0; k<receiveAnchore.length; k++){
             receiveAnchore[k].style.fill = "#fff";
@@ -125,6 +131,16 @@ modeSwitch.addEventListener('click', function(){
         }
         for(var m=0; m<receiveMsgTime.length; m++){
             receiveMsgTime[m].style.color = "rgb(0, 0, 0, 0.45)";
+        }
+        for(var n=0; n<sendChats.length; n++){
+            sendChats[n].style.backgroundColor = '#e3fcd7';
+        }
+        for(var o=0; o<sendChats.length; o++){
+            sendAnchore[o].style.fill = 'rgb(227, 252, 215)';
+        }
+        for(var p=0; p<sendMsgs.length; p++){
+            sendMsgs[p].style.color = 'black';
+            sendMsgsTime[p].style.color = 'rgb(0, 0, 0, 0.45)';
         }
         mobileHeader.style.backgroundColor = '#128c7e';
         chatSection.style.backgroundImage = "url('Whatsapp_bg_light.webp')";
@@ -144,6 +160,16 @@ modeSwitch.addEventListener('click', function(){
         }
         for(var m=0; m<receiveMsgTime.length; m++){
             receiveMsgTime[m].style.color = "#fff";
+        }
+        for(var n=0; n<sendChats.length; n++){
+            sendChats[n].style.backgroundColor = '#005949';
+        }
+        for(var o=0; o<sendChats.length; o++){
+            sendAnchore[o].style.fill = 'rgb(0, 89, 73)';
+        }
+        for(var p=0; p<sendMsgs.length; p++){
+            sendMsgs[p].style.color = 'white';
+            sendMsgsTime[p].style.color = 'white';
         }
         mobileHeader.style.backgroundColor = '#1f2b32';
         chatSection.style.backgroundImage = "url('Whatsapp_bg_dark.webp')"; 
@@ -463,19 +489,24 @@ sendBtn.addEventListener('click', function(){
             iconPath.style.isolation = "isolate";
             iconPath.style.opacity = '0.12999999523162842';
             iconPath2.setAttribute('d','M5.19,0H0V11.19L6.47,2.57C7.53,1.16,7,0,5.19,0Z');
+            iconPath2.classList.add('msg-arrow-right');
             if(sendMsgCounter > 0 && customChatDay.value == 'none'){
     
                 iconPath.style.fill = 'transparent'
                 iconPath2.style.fill = "transparent";
             }
             else{
-    
-                iconPath.style.fill = 'green'
-                iconPath2.style.fill = "#e6ffda";
+                if(modeValue.checked == false){
+                    iconPath.style.fill = 'green';
+                    iconPath2.style.fill = "#e6ffda";
+                }
+                else{
+                    iconPath.style.fill = 'green';
+                    iconPath2.style.fill = "rgb(0, 89, 73)";
+                }
             }
             iconSvg.appendChild(iconPath);
             iconSvg.appendChild(iconPath2);
-            iconSvg.classList.add('msg-arrow-right');
             const deleteSendChat = document.createElement('button');
             deleteSendChat.classList.add('delete-chat');
             deleteSendChat.innerHTML = `<i id="delete-date" class="fa fa-trash-o"></i>`;
@@ -494,6 +525,12 @@ sendBtn.addEventListener('click', function(){
         
             const sendChat = document.createElement('div');
             sendChat.classList.add('send-chat');
+            if(modeValue.checked == true){
+                sendChat.style.backgroundColor = 'rgb(0, 89, 73)';
+            }
+            else{
+                sendChat.style.backgroundColor = '#e3fcd7';
+            }
             if(sendMsgCounter > 0){
                 sendChat.style.borderRadius = "9px 9px 9px 9px";
             }
@@ -515,7 +552,12 @@ sendBtn.addEventListener('click', function(){
             msg.classList.add('msg');
             const send = document.createElement('p');
             send.classList.add('send')
-    
+            if(modeValue.checked == true){
+                send.style.color = 'white';
+            }
+            else{
+                send.style.color = 'black';
+            }
             send.innerHTML = newMsgSend.value;
             if(send.innerHTML.length > 5){
                 send.style.marginBottom = '10px'
@@ -531,6 +573,12 @@ sendBtn.addEventListener('click', function(){
             sendMsgActivity.appendChild(sendStatus);
             const sendTime = document.createElement('p');
             sendTime.classList.add('send-time');
+            if(modeValue.checked == true){
+                sendTime.style.color = 'white';
+            }
+            else{
+                sendTime.style.color = 'rgb(0, 0, 0, 0.45)';
+            }
             let [hours, mins] = msgSendTime.value.split(":");
             if(hours > 12){
                 hours -= 12;

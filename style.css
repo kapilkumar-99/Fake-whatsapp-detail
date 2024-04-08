@@ -427,7 +427,7 @@ input:focus + .slider {
 
 .send-msg-activity{
     margin-top: -10px;
-    margin-right: 4px;
+    margin-right: -3px;
 }
 
 .send-time{
@@ -489,7 +489,7 @@ input:focus + .slider {
 
 .receive-msg-activity{
     margin-top: -10px;
-    margin-right: 4px;
+    /* margin-right: 4px; */
 }
 
 .receive-time{
